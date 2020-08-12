@@ -1,0 +1,9 @@
+{
+	"semi": false,
+	"singleQuote": true,
+	"useTabs": true,
+	"vueIndentScriptAndStyle": true,
+	"bracketSpacing": true,
+	"jsxBracketSameLine": true,
+	"tabWidth": 1
+}

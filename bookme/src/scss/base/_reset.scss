@@ -1,0 +1,184 @@
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol,
+ul {
+	list-style: none;
+}
+blockquote,
+q {
+	quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+ul {
+	list-style: none;
+}
+.textarea a {
+	display: inline;
+	// color: $color_primary;
+	text-decoration: inherit;
+	// font-family: $font_family_bold;
+	// border-bottom: 2px solid $color_primary;
+	letter-spacing: 0.275px;
+	// @include breakpoint('desktop') {
+	// 	letter-spacing: 0.3px;
+	// }
+
+	&:hover {
+		// font-family: $font_family_bold;
+		letter-spacing: 0;
+	}
+}
+a {
+	display: block;
+	color: inherit;
+	text-decoration: inherit;
+}
+button,
+input,
+optgroup,
+select,
+textarea,
+html input[type='button'],
+input[type='reset'],
+input[type='submit'],
+button[disabled],
+html input[disabled],
+button::-moz-focus-inner,
+input::-moz-focus-inner,
+input[type='checkbox'],
+input[type='radio'],
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button,
+input[type='search'],
+input[type='search']::-webkit-search-cancel-button,
+input[type='search']::-webkit-search-decoration {
+	border: none;
+	background-image: none;
+	background-color: transparent;
+	-webkit-box-shadow: none;
+	-moz-box-shadow: none;
+	box-shadow: none;
+	border-style: none;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	text-decoration: none;
+}
+//-- Reset button syles --//
+button {
+	display: inline-block;
+	border: none;
+	margin: 0;
+	text-decoration: none;
+	line-height: 1;
+	text-align: center;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	outline: none;
+}
+//-- Reset button syles END --//
