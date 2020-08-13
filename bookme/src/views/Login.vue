@@ -1,13 +1,17 @@
 <template>
 	<div class="login">
-		<h1>Login</h1>
-		<div></div>
+		<LoginForm />
 	</div>
 </template>
 
 <script>
+	import LoginForm from '@/components/Forms/LoginForm.vue'
+
 	export default {
-		name: 'Login'
+		name: 'Login',
+		components: {
+			LoginForm
+		}
 	}
 </script>
 
@@ -17,5 +21,6 @@
 		height: 100vh;
 		background-image: url('../assets/bg1.png');
 		background-size: cover;
+		margin: 0 auto;
 	}
 </style>

@@ -25,11 +25,15 @@ router.get("/apitest", (req, res) => {
 });
 
 router.post("/login", (req, res) => {
+  // ADD USERNAME & PASSWORD VALIDATION AND ENCRYPT
   const username = req.body.username;
   const user = { name: username };
 
   const accessToken = jwt.sign(user, process.env.ACCESS_TOKEN_SECRET);
-  res.json({ accessToken: accessToken });
+  res.json({
+    user: req.body.username,
+    accessToken: accessToken,
+  });
 });
 
 function authenticateToken(req, res, next) {
