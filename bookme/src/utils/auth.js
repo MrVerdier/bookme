@@ -43,10 +43,15 @@ export function clearAuthToken() {
 }
 
 export function isLoggedIn() {
-	// let authToken = getAuthToken()
+	let authToken = getAuthToken()
 	// console.log(authToken)
+	if (authToken) {
+		return true
+	} else {
+		return false
+	}
 	// return !!authToken && !isTokenExpired(authToken)
-	return false
+	// return true
 }
 
 export function getUserInfo() {
@@ -54,6 +59,8 @@ export function getUserInfo() {
 		return decode(getAuthToken())
 	}
 }
+
+// TODO reenable isTokenExpried functionality
 
 // function getTokenExpirationDate(encodedToken) {
 // 	let token = decode(encodedToken)

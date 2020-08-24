@@ -43,6 +43,7 @@
 </script>
 
 <style lang="scss" scoped>
+	@import '@/scss/base/_variables.scss';
 	.login-form {
 		background: #fff;
 		border: 1px solid #262626;

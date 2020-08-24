@@ -1,0 +1,53 @@
+//___ Border radius ___//
+// $border_radius: 5px;
+
+//___ Margins ___//
+// $margin-10: 5px;
+// $margin-v-10: 0 10px;
+// $margin-h-10: 10px 0;
+
+//___ Paddings___//
+// $border_radius: 5px;
+
+//___ Transitions ___//
+$transition_checkbox: ease 100ms;
+$transition_standard: ease 300ms;
+$transition_hover: ease 350ms;
+$transition_menu: ease 150ms;
+$transition_long: ease 500ms;
+$transition_extra_long: ease 1250ms;
+
+//___ Breakpoints ___//
+$breakpoint_mobile_small: 320px;
+$breakpoint_mobile: 600px;
+$breakpoint_mobile_max: $breakpoint_mobile - 1px;
+$breakpoint_tablet: 768px;
+$breakpoint_tablet_max: $breakpoint_tablet - 1px;
+$breakpoint_laptop_small: 960px;
+$breakpoint_laptop: 1230px;
+$breakpoint_desktop: 1540px;
+$breakpoint_desktop_large: 2559px;
+
+$font_thin: 200;
+$font_light: 300;
+$font_regular: 300;
+$font_semibold: 500;
+$font_bold: 600;
+$font_extra_bold: 700;
+$font_black: 800;
+
+//___ Colors ___//
+$color_primary: #647097;
+$color_hdln: #262626;
+$color_text: #262626;
+$color_primary_bg: #ffffff;
+$color_light_bg: #d1d4e3;
+$color_light_grey: #cecece;
+$color_false: #e27676;
+$color_border: #262626;
+
+$color_active: #647097;
+$color_disabled: #cecece;
+
+$color_black: #000000;
+$color_white: #ffffff;

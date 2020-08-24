@@ -2,37 +2,38 @@
 	<div class="top">
 		<div class="top__logo"></div>
 		<div class="top__menu">
-			<Slide
+			<Push
 				class="top__menu"
-				ref="slide"
-				width="200"
+				ref="push"
+				width="300"
 				:closeOnNavigation="true"
 				noOverlay
 				right
 			>
 				<router-link :to="{ name: 'login' }">Login</router-link>
-				<router-link :to="{ name: 'test' }">Test</router-link>
-			</Slide>
+				<router-link :to="{ name: 'home' }">Home</router-link>
+			</Push>
 		</div>
 	</div>
 </template>
 
 <script>
-	import { Slide } from 'vue-burger-menu'
+	import { Push } from 'vue-burger-menu'
 	export default {
 		name: 'Navigation',
 		components: {
-			Slide
+			Push
 		}
 	}
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
+	@import '@/scss/base/_variables.scss';
 	.top {
 		position: absolute;
 		top: 0;
 		left: 0;
-		background: #fff;
+		background: $color_white;
 		width: 100%;
 		height: 66px;
 		&__logo {
@@ -41,7 +42,7 @@
 			top: calc(50% - 25px);
 			width: 100px;
 			height: 50px;
-			background-image: url('../assets/logo1.png');
+			// background-image: url('../assets/logo1.png');
 			background-position: center;
 			background-size: contain;
 			background-repeat: no-repeat;
@@ -51,5 +52,12 @@
 			bottom: 35px;
 			left: 9px;
 		}
+	}
+	.bm-menu {
+		background: #fff;
+		box-shadow: 0px 0px 6px 1px #515164;
+	}
+	.bm-item-list a {
+		color: #515164;
 	}
 </style>

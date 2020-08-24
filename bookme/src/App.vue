@@ -18,4 +18,6 @@
 
 <style lang="scss">
 	@import '@/scss/base/_reset.scss';
+	@import '@/scss/base/_global.scss';
+	@import '@/scss/base/_reset.scss';
 </style>
