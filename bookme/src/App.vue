@@ -16,6 +16,7 @@
 	}
 </script>
 
+// TODO remove this when the global is working
 <style lang="scss">
 	@import '@/scss/base/_reset.scss';
 	@import '@/scss/base/_global.scss';

@@ -1,6 +1,10 @@
 <template>
 	<div class="top">
-		<div class="top__logo"></div>
+		<router-link class="" :to="{ name: 'login' }"
+			><div class="top__logo"></div
+		></router-link>
+
+		<!-- <div class="top__logo"></div> -->
 		<div class="top__menu">
 			<Push
 				class="top__menu"
@@ -10,8 +14,21 @@
 				noOverlay
 				right
 			>
-				<router-link :to="{ name: 'login' }">Login</router-link>
-				<router-link :to="{ name: 'home' }">Home</router-link>
+				<router-link class="top__link" :to="{ name: 'login' }" v-show="!loggedIn"
+					>Login</router-link
+				>
+				<router-link class="top__link" :to="{ name: 'home' }" v-show="loggedIn"
+					>Home</router-link
+				>
+				<router-link class="top__link" :to="{ name: 'booking' }" v-show="loggedIn"
+					>Booking</router-link
+				>
+				<router-link class="top__link" :to="{ name: 'gallery' }" v-show="loggedIn"
+					>Galleri</router-link
+				>
+				<router-link class="top__link" :to="{ name: 'todos' }" v-show="loggedIn"
+					>Todo's</router-link
+				>
 			</Push>
 		</div>
 	</div>
@@ -19,10 +36,17 @@
 
 <script>
 	import { Push } from 'vue-burger-menu'
+	import { isLoggedIn } from '../utils/auth'
+
 	export default {
 		name: 'Navigation',
 		components: {
 			Push
+		},
+		data() {
+			return {
+				loggedIn: isLoggedIn()
+			}
 		}
 	}
 </script>
@@ -42,7 +66,7 @@
 			top: calc(50% - 25px);
 			width: 100px;
 			height: 50px;
-			// background-image: url('../assets/logo1.png');
+			background-image: url('../assets/bookmelogo.png');
 			background-position: center;
 			background-size: contain;
 			background-repeat: no-repeat;

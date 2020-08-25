@@ -11,11 +11,15 @@
   "dependencies": {
     "axios": "^0.19.2",
     "core-js": "^3.6.5",
+    "date-fns": "^2.15.0",
     "jwt-decode": "^2.2.0",
+    "pusher-js": "^7.0.0",
     "vue": "^2.6.11",
     "vue-burger-menu": "^2.0.5",
+    "vue-fullcalendar": "^1.0.9",
     "vue-jwt-decode": "^0.1.0",
     "vue-router": "^3.4.2",
+    "vuejs-datepicker": "^1.6.2",
     "vuex": "^3.5.1"
   },
   "devDependencies": {

@@ -2,6 +2,9 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Login from '../views/Login.vue'
 import Home from '../views/Home.vue'
+import Booking from '../views/Booking.vue'
+import Gallery from '../views/Gallery.vue'
+import Todos from '../views/Todos.vue'
 import { isLoggedIn } from '../utils/auth'
 
 Vue.use(VueRouter)
@@ -19,6 +22,21 @@ const routes = [
 		path: '/',
 		name: 'home',
 		component: Home
+	},
+	{
+		path: '/booking',
+		name: 'booking',
+		component: Booking
+	},
+	{
+		path: '/gallery',
+		name: 'gallery',
+		component: Gallery
+	},
+	{
+		path: '/todos',
+		name: 'todos',
+		component: Todos
 	}
 ]
 

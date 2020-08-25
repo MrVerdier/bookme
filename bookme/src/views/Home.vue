@@ -1,16 +1,16 @@
 <template>
 	<div class="page home">
 		<section class="navigation">
-			<router-link class="navigation__link" :to="{ name: 'login' }"
-				>Kalender</router-link
+			<router-link class="navigation__link" :to="{ name: 'booking' }"
+				>Booking</router-link
 			>
-			<router-link class="navigation__link" :to="{ name: 'home' }"
+			<router-link class="navigation__link" :to="{ name: 'gallery' }"
 				>Galleri</router-link
 			>
-			<router-link class="navigation__link" :to="{ name: 'login' }"
+			<router-link class="navigation__link" :to="{ name: 'todos' }"
 				>Todo's</router-link
 			>
-			<router-link class="navigation__link" :to="{ name: 'home' }"
+			<router-link class="navigation__link" :to="{ name: 'login' }"
 				>Log ud</router-link
 			>
 		</section>
