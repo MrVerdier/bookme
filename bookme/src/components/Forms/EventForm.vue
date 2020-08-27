@@ -61,11 +61,12 @@
 			}
 		},
 		methods: {
-			...mapActions(['createEvent', 'commitNewEvent']),
+			...mapActions(['createEvent', 'commitNewEvent', 'fetchEvents']),
 			async handleSubmit() {
 				const start = format(this.event.start, 'yyyy-MM-dd')
 				const end = format(this.event.end, 'yyyy-MM-dd')
 
+				// TODO Create getter for user name to save with event
 				const event = {
 					...this.event,
 					start,
@@ -74,6 +75,7 @@
 
 				this.commitNewEvent(event)
 				this.createEvent()
+				this.$emit('update-events')
 				this.resetValues()
 			},
 			selectColor(color) {

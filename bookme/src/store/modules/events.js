@@ -28,7 +28,7 @@ const actions = {
 				commit('setEvents', events.data)
 			})
 	},
-	async createEvent() {
+	async createEvent({ dispatch }) {
 		await axios
 			.post('http://localhost:5000/schedule/addevent', state.new_event, {
 				headers: {
@@ -36,6 +36,7 @@ const actions = {
 				}
 			})
 			.then(function(res) {
+				dispatch('fetchEvents')
 				console.log(res)
 			})
 	},

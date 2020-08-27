@@ -1,6 +1,6 @@
 <template>
 	<div class="page booking">
-		<event-form />
+		<event-form @update-events="updateEvents" />
 		<calendar :events="dbevents" />
 	</div>
 </template>
@@ -23,7 +23,12 @@
 			}
 		},
 		methods: {
-			...mapActions(['fetchEvents'])
+			...mapActions(['fetchEvents']),
+			updateEvents() {
+				console.log('updating events')
+				this.fetchEvents()
+				console.log(this.dbevents)
+			}
 		},
 		computed: {
 			...mapGetters(['getEvents']),
