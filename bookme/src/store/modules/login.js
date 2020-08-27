@@ -1,38 +1,29 @@
-import axios from 'axios'
+import { isLoggedIn } from '@/utils/auth'
 
 const getDefaultState = () => {
 	return {
-		token: '',
-		user: {
-			'username:': 'Jim'
-		}
+		logged_status: ''
 	}
 }
 
 const state = getDefaultState()
 
-const getters = {}
+const getters = {
+	getLoginStatus: state => {
+		return state.logged_status
+	}
+}
 
 const actions = {
-	async sendLoginInformation() {
-		console.log('logging in')
-		await axios
-			.post('http://localhost:5000/users/login', state.user, {
-				headers: {
-					'Content-Type': 'application/json'
-				}
-			})
-			.then(function(resp) {
-				console.log(resp)
-			})
-			.catch(function(resp) {
-				console.log(resp)
-			})
+	updateLoginStatus({ commit }) {
+		console.log('checking status')
+		const status = isLoggedIn()
+		commit('setStatus', status)
 	}
 }
 
 const mutations = {
-	// setTemplate: (state, data) => (state.template = data),
+	setStatus: (state, data) => (state.logged_status = data)
 }
 
 export default {

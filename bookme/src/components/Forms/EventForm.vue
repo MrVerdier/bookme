@@ -11,6 +11,9 @@
 				<date-picker :placeholder="'End date'" v-model="event.end" />
 			</div>
 			<div class="input-holder">
+				<vue-timepicker v-model="event.time"></vue-timepicker>
+			</div>
+			<div class="input-holder">
 				<textarea
 					placeholder="Event description"
 					rows="4"
@@ -29,17 +32,27 @@
 
 <script>
 	import DatePicker from 'vuejs-datepicker'
+	import VueTimepicker from 'vue2-timepicker'
 	import format from 'date-fns/format'
 	import ColorPicker from '@/components/ColorPicker'
+	import { mapActions } from 'vuex'
+
+	import 'vue2-timepicker/dist/VueTimepicker.css'
 
 	export default {
 		name: 'EventForm',
+		components: {
+			DatePicker,
+			VueTimepicker,
+			ColorPicker
+		},
 		data() {
 			return {
 				event: {
 					title: '',
 					start: '',
 					end: '',
+					time: '',
 					cssClass: '',
 					data: {
 						description: ''
@@ -48,6 +61,7 @@
 			}
 		},
 		methods: {
+			...mapActions(['createEvent', 'commitNewEvent']),
 			async handleSubmit() {
 				const start = format(this.event.start, 'yyyy-MM-dd')
 				const end = format(this.event.end, 'yyyy-MM-dd')
@@ -58,16 +72,8 @@
 					end
 				}
 
-				const req = await fetch('http://localhost:5000/schedule', {
-					method: 'POST',
-					body: JSON.stringify(event),
-					headers: {
-						'content-type': 'application/json'
-					}
-				})
-
-				const res = await req.json()
-				console.log(res)
+				this.commitNewEvent(event)
+				this.createEvent()
 				this.resetValues()
 			},
 			selectColor(color) {
@@ -87,10 +93,6 @@
 					}
 				}
 			}
-		},
-		components: {
-			DatePicker,
-			ColorPicker
 		}
 	}
 </script>

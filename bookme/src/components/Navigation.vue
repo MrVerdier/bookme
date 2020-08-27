@@ -29,6 +29,9 @@
 				<router-link class="top__link" :to="{ name: 'todos' }" v-show="loggedIn"
 					>Todo's</router-link
 				>
+				<a class="top__link" v-show="loggedIn" @click="logout">
+					Log ud
+				</a>
 			</Push>
 		</div>
 	</div>
@@ -36,7 +39,8 @@
 
 <script>
 	import { Push } from 'vue-burger-menu'
-	import { isLoggedIn } from '../utils/auth'
+	import { logoutUser } from '../utils/auth'
+	// import { mapGetters } from 'vuex'
 
 	export default {
 		name: 'Navigation',
@@ -44,8 +48,17 @@
 			Push
 		},
 		data() {
-			return {
-				loggedIn: isLoggedIn()
+			return {}
+		},
+		methods: {
+			logout() {
+				logoutUser()
+				this.$router.go('/login')
+			}
+		},
+		computed: {
+			loggedIn() {
+				return this.$store.getters.getLoginStatus
 			}
 		}
 	}

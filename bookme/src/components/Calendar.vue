@@ -1,14 +1,21 @@
 <template>
 	<section class="calendar">
-		<full-calendar :events="events" />
+		<full-calendar :events="events[0]" />
 	</section>
 </template>
 
 <script>
 	import FullCalendar from 'vue-fullcalendar'
+
 	export default {
 		name: 'Calendar',
-		props: ['events'],
+		props: {
+			events: {
+				type: Array,
+				// FIXME fix console error relating to this
+				default: () => []
+			}
+		},
 		components: {
 			FullCalendar
 		}
