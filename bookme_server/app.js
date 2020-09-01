@@ -5,18 +5,21 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 const cors = require("cors");
 
-const jwt = require("jsonwebtoken");
+// const jwt = require("jsonwebtoken");
 app.use(cors());
 app.use(express.json());
 
-// const expressLayouts = require("express-ejs-layouts");
-// const mongoose = require("mongoose");
-// const passport = require("passport");
-// const flash = require("connect-flash");
-// const session = require("express-session");
-
 const users = require("./routes/users");
+const schedule = require("./routes/schedule");
 app.use("/users", users);
+app.use("/schedule", schedule);
+
+// Knex/Objection
+const Knex = require("knex");
+const knexConfig = require("./knexfile");
+const Model = require("objection").Model;
+const knex = Knex(knexConfig.development);
+Model.knex(knex);
 
 // Middleware
 

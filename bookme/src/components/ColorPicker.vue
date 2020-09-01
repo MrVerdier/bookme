@@ -6,7 +6,7 @@
 				class="color"
 				v-for="(theme, index) in colors"
 				:key="index"
-				@click="selectColor(theme)"
+				@click="selectColor(index, theme)"
 				:class="{ selected: color === theme, [theme]: theme }"
 			></div>
 		</div>
@@ -23,8 +23,8 @@
 			}
 		},
 		methods: {
-			selectColor(color) {
-				this.$emit('colorPicked', color)
+			selectColor(index, theme) {
+				this.$emit('colorPicked', index + 1, theme)
 			}
 		}
 	}

@@ -7,11 +7,20 @@
 
 <script>
 	import Navigation from '@/components/Navigation.vue'
+	import { isLoggedIn } from '@/utils/auth'
 
 	export default {
 		name: 'Bookme',
 		components: {
 			Navigation
+		},
+		data() {
+			return {
+				test: 'hi'
+			}
+		},
+		beforeCreate() {
+			isLoggedIn()
 		}
 	}
 </script>

@@ -11,7 +11,14 @@
 				<date-picker :placeholder="'End date'" v-model="event.end" />
 			</div>
 			<div class="input-holder">
-				<vue-timepicker v-model="event.time"></vue-timepicker>
+				<vue-timepicker
+					class="eventform__timepicker"
+					v-model="event.timeStart"
+				></vue-timepicker>
+				<vue-timepicker
+					class="eventform__timepicker"
+					v-model="event.timeEnd"
+				></vue-timepicker>
 			</div>
 			<div class="input-holder">
 				<textarea
@@ -52,7 +59,9 @@
 					title: '',
 					start: '',
 					end: '',
-					time: '',
+					timeStart: '',
+					timeEnd: '',
+					color: '',
 					cssClass: '',
 					data: {
 						description: ''
@@ -78,9 +87,10 @@
 				this.$emit('update-events')
 				this.resetValues()
 			},
-			selectColor(color) {
+			selectColor(index, color) {
 				this.event = {
 					...this.event,
+					color: index,
 					cssClass: color
 				}
 			},
@@ -90,11 +100,16 @@
 					start: '',
 					end: '',
 					cssClass: '',
+					timeStart: '',
+					timeEnd: '',
 					data: {
 						description: ''
 					}
 				}
 			}
+		},
+		beforeDestroy() {
+			this.eventHub.$emit('removeBack')
 		}
 	}
 </script>

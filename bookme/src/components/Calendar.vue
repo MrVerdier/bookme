@@ -1,14 +1,26 @@
 <template>
 	<section class="calendar">
-		<full-calendar :events="events[0]" />
+		<FullCalendar
+			:options="calendarOptions"
+			:events="events[0]"
+			@eventClick="getEvent"
+		/>
 	</section>
 </template>
 
 <script>
-	import FullCalendar from 'vue-fullcalendar'
+	// TODO replace calendar with default fullcalendar
+	// import FullCalendar from 'vue-fullcalendar'
+	import FullCalendar from '@fullcalendar/vue'
+	import dayGridPlugin from '@fullcalendar/daygrid'
+	import timeGridPlugin from '@fullcalendar/timegrid'
+	import interactionPlugin from '@fullcalendar/interaction'
 
 	export default {
 		name: 'Calendar',
+		components: {
+			FullCalendar
+		},
 		props: {
 			events: {
 				type: Array,
@@ -16,8 +28,25 @@
 				default: () => []
 			}
 		},
-		components: {
-			FullCalendar
+		data() {
+			return {
+				calendarOptions: {
+					plugins: [dayGridPlugin, interactionPlugin, timeGridPlugin],
+					headerToolbar: {
+						left: 'prev,next today',
+						center: 'title',
+						right: 'dayGridMonth,timeGridWeek,timeGridDay'
+					},
+					initialView: 'dayGridMonth',
+					events: this.events[0]
+				}
+			}
+		},
+
+		methods: {
+			getEvent(event) {
+				this.$emit('event-clicked', event)
+			}
 		}
 	}
 </script>
