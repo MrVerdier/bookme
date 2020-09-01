@@ -4,13 +4,14 @@ import axios from 'axios'
 const REST_ENDPOINT = 'http://localhost:5000/'
 const AUTH_TOKEN_KEY = 'authToken'
 
-export async function loginUser() {
+export async function loginUser(username, password) {
 	console.log('logging in')
-	const username = {
-		username: 'Jim'
+	const user = {
+		username: username,
+		password: password
 	}
 	await axios
-		.post(`${REST_ENDPOINT}users/login`, username, {
+		.post(`${REST_ENDPOINT}users/login`, user, {
 			headers: {
 				'Content-Type': 'application/json'
 			}
@@ -25,6 +26,7 @@ export async function loginUser() {
 }
 
 export function logoutUser() {
+	console.log('loggin out')
 	clearAuthToken()
 }
 
@@ -44,7 +46,6 @@ export function clearAuthToken() {
 
 export function isLoggedIn() {
 	let authToken = getAuthToken()
-	// console.log(authToken)
 	if (authToken) {
 		return true
 	} else {

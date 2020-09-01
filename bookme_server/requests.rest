@@ -30,3 +30,19 @@ Content-Type: application/json
 {
 "username": "Jim"
 }
+
+###
+
+POST http://localhost:5000/schedule/addevent 
+Content-Type: application/json
+
+{
+  "user_fk": 1,
+  "title": "test",
+  "start": "2020-08-25",
+  "end": "2020-08-25",
+  "time_start": "22:00",
+  "time_end": "22:00",
+  "color_fk": 1,
+  "description": "test"
+}

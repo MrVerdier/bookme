@@ -18,6 +18,7 @@
 
 <script>
 	import { loginUser } from '@/utils/auth'
+	import { mapActions } from 'vuex'
 
 	export default {
 		name: 'LoginForm',
@@ -28,10 +29,12 @@
 			}
 		},
 		methods: {
+			...mapActions(['updateLoginStatus']),
 			async login(e) {
 				e.preventDefault()
 				try {
 					await loginUser(this.username, this.password)
+					this.updateLoginStatus()
 					this.$router.push('/')
 				} catch (err) {
 					// TODO set frontend validation feedback NOT ALERT

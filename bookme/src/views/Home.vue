@@ -1,25 +1,39 @@
 <template>
 	<div class="page home">
 		<section class="navigation">
-			<router-link class="navigation__link" :to="{ name: 'login' }"
-				>Kalender</router-link
+			<router-link class="navigation__link" :to="{ name: 'booking' }"
+				>Booking</router-link
 			>
-			<router-link class="navigation__link" :to="{ name: 'home' }"
+			<router-link class="navigation__link" :to="{ name: 'gallery' }"
 				>Galleri</router-link
 			>
-			<router-link class="navigation__link" :to="{ name: 'login' }"
+			<router-link class="navigation__link" :to="{ name: 'todos' }"
 				>Todo's</router-link
 			>
-			<router-link class="navigation__link" :to="{ name: 'home' }"
-				>Log ud</router-link
-			>
+			<a class="navigation__link" @click="logout">
+				Log ud
+			</a>
 		</section>
 		<section class="bottom"></section>
 	</div>
 </template>
 
 <script>
-	export default {}
+	import { logoutUser } from '../utils/auth'
+	export default {
+		name: 'Home',
+		methods: {
+			logout() {
+				logoutUser()
+				this.$router.go('/login')
+			}
+		},
+		computed: {
+			loggedIn() {
+				return this.$store.getters.getLoginStatus
+			}
+		}
+	}
 </script>
 
 <style lang="scss" scoped>
