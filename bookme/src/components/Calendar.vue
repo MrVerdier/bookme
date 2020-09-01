@@ -9,8 +9,6 @@
 </template>
 
 <script>
-	// TODO replace calendar with default fullcalendar
-	// import FullCalendar from 'vue-fullcalendar'
 	import FullCalendar from '@fullcalendar/vue'
 	import dayGridPlugin from '@fullcalendar/daygrid'
 	import timeGridPlugin from '@fullcalendar/timegrid'
